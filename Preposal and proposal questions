@@ -1,1 +1,72 @@
+# Preproposal
+
+## What idea(s) do you have for your final project?
+- fireboy and watergirl from coolmath games, but we are adding obstacles and the characters will be doctors vs monsters (Frankenstein)
+
+TODO
+
+## If you plan to collaborate with one or two classmates, what are their names?
+- Mackenzie Hampton
+- Mithila Mulay
+- Callah Fay
+
+
+TODO
+
+## Do you have any questions of your own?
+- not as of right now. None of us are super familiar with py game so we need to figure out how to do it.
+
+TODO
+
+
+# Proposal
+
+## What will (likely) be the title of your project?
+- monsterboy and doctor girl
+
+TODO
+
+## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
+- a game where monsters chase a doctor as she tries to get through different obstacles and reach a door to escape. The player has to avoid the monsters and make it to the door without getting caught
+
+TODO
+
+## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
+- the player will control a doctor who is trying to escape from monsters chasing her. The goal is to get through different obstacles and reach the exit door without getting caught. I want the player to be able to move the doctor using keys. There will be obstacles throughout the game the player will have to avoid and monsters that will move around to catch the doctor. If doc touches monster, the player will lose and have to restart. If the doc reachers the door, player wins. We plan to only use python and pygame and use the turtle graphics window to make the characters and game screen (we still haven't figured this out though). If enough time, I want there to be multiple levels to get harder as game progresses.
+
+TODO
+
+## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
+- not applicable
+
+TODO, if applicable
+
+## If planning to collaborate with 1 or 2 classmates for the final project, list their names, email addresses, and the names of their assigned TAs below.
+- Mithila Mulay, tur26334@temple.edu
+- Mackenzie Hampton, tur73684@temple.edu
+- Callah Fay
+
+TODO, if applicable
+
+## In the world of software, most everything takes longer to implement than you expect. And so it's not uncommon to accomplish less in a fixed amount of time than you hope.
+
+### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
+- working game where player can move doctor using keys, avoid obstacles and monsters and reach exit door to win. Game will restart if player loses.
+
+TODO
+
+### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
+- multiple levels that become harder. A start and game over scene with three lives.
+
+TODO
+
+### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
+- mideally, I would like to create a game with multiple levels, diff monsters and obstacles  change as the player progresses, timer and score and health system for doctor. We want to go above and beyond to show we are really comfortable in our python skills.
+
+TODO
+
+## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
+- first, create game screen and figure out doctor will be able to move. I think turtle graphics would be a good place to start. Learn how to make doff objects move independently, especially monsters that will be chasing doctors. Figure out how computer can detect when doc touches monster, obstacle or exit door. Once that works, I will add more obstacles and make the game more challenging. Need to figure out collision detection, keyboard controls and pygame. Learn how to debug faster. If extra time at end, more levels, lives and other features to make it more fun to play
+
+TODO
 
