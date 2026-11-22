@@ -1,0 +1,63 @@
+
+import pygame
+from setup import GameManager
+
+# Initialize pygame
+pygame.init()
+
+# Create game window
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Testing Game Manager")
+
+# Create game manager
+game = GameManager()
+
+clock = pygame.time.Clock()
+running = True
+
+while running:
+
+    dt = clock.tick(60)
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            running = False
+
+        if event.type == pygame.KEYDOWN:
+
+            # Press SPACE to lose a life
+            if event.key == pygame.K_SPACE:
+                game.lose_life()
+
+            # Press R to restart
+            if event.key == pygame.K_r:
+                game.restart_game()
+
+            # Press W to test victory
+            if event.key == pygame.K_w:
+                game.state = "won"
+
+            # Press Q to quit
+            if event.key == pygame.K_q:
+                running = False
+
+    # Update game
+    game.update(dt)
+
+    # Draw background
+    screen.fill((35, 40, 55))
+
+    # Display remaining lives
+    game.update_hearts(screen)
+
+    # Display game over or victory
+    if game.state == "game_over":
+        game.game_over(screen)
+
+    elif game.state == "won":
+        game.you_win(screen)
+
+    pygame.display.flip()
+
+pygame.quit()
