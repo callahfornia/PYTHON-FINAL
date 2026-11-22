@@ -1,0 +1,84 @@
+import pygame
+
+class GameManager:
+    def __init__(self):
+        self.starting_lives = starting_lives
+        self.lives = starting_lives
+        self.state = "playing"
+        self.invulnerable_ms = 0
+
+        self.large_font = pygame.font.Font(None, 76)
+        self.small_font = pygame.font.Font(None, 36)
+
+    def lose_life(self):
+        if self.state != "playing" or self.invulnerable_ms > 0:
+            return False
+        self.lives -= 1
+        self.invulnerable_ms = 1200  # Prevent repeated losses from one collision
+        if self.lives <= 0:
+            self.lives = 0
+            self.state = "game_over"
+        return True
+
+    def update(self, elapsed_ms):
+        if self.invulnerable_ms > 0:
+            self.invulnerable_ms = max(0, self.invulnerable_ms - elapsed_ms)
+
+    def update_hearts(self, screen):
+        for i in range(self.lives):
+           x = 38 + i * 44
+           y = 17
+
+           flask_points = [
+               (x - 5, y),
+               (x + 5, y),
+               (x + 5, y + 10),
+               (x + 14, y + 29),
+               (x + 14, y + 34),
+               (x - 14, y + 34),
+               (x - 14, y + 29),
+               (x - 5, y + 10),
+           ]
+
+           pygame.draw.polygon(screen, (215, 240, 245), flask_points)
+
+           liquid_points = [
+               (x - 10, y + 25),
+               (x + 10, y + 25),
+               (x + 12, y + 31),
+               (x + 12, y + 32),
+               (x - 12, y + 32),
+               (x - 12, y + 31),
+           ]
+           pygame.draw.polygon(screen, (45, 190, 170), liquid_points)
+
+           pygame.draw.polygon(screen, (35, 75, 90), flask_points, width=2)
+
+           pygame.draw.line(screen, (35, 75, 90), (x - 6, y), (x + 6, y), width=3)
+
+           pygame.draw.circle(screen, (255, 255, 255), (x + 5, y + 27), 2)
+
+    def _draw_message(self, screen, heading, message):
+        width = screen.get_width()
+        height = screen.get_height()
+
+        overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 190))  # Semi-transparent
+        screen.blit(overlay, (0, 0))
+
+        title = self.large_font.render(heading, True, (255, 255, 255))
+        instruction = self.small_font.render(message, True, (255, 255, 255))
+
+        screen.blit(title, title.get_rect(center=(width // 2, height // 2 - 35)))
+        screen.blit(instruction, instruction.get_rect(center=(width // 2, height // 2 + 30)))
+
+    def game_over(self, screen):
+        self._draw_message(screen, "GAME OVER", "Press R to restart or Q to quit")
+
+    def restart_game(self):
+        self.lives = self.starting_lives
+        self.state = "playing"
+        self.invulnerable_ms = 0
+
+    def you_win(self, screen):
+        self._draw_message(screen, "YOU WIN!", "You escaped the hospital! Press R to restart or Q to quit")
